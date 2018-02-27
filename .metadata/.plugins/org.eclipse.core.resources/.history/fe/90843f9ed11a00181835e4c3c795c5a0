@@ -1,0 +1,14 @@
+
+public class SmartPhone extends Phone implements Mp3player,NewFunction{
+	public static void main(String[]args){
+		SmartPhone Android=new SmartPhone();
+		Android.play();
+		Android.stop();
+		Android.next();
+		Android.back();
+		Android.call();
+		Android.mail();
+		Android.photo();
+		Android.internet();
+	}
+}

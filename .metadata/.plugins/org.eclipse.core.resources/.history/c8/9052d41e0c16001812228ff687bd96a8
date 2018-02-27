@@ -1,0 +1,14 @@
+
+public class HelloWorld {
+
+	public static void main(String[] args) {
+		// if文の練習
+		int a =18;
+		if(a>=20){
+			System.out.println("成人");
+		}else{
+			System.out.println("未成年");
+		}
+	}
+
+}

@@ -1,0 +1,10 @@
+
+public class HelloWorld {
+
+	public static void main(String[] args) {
+		// 配列の練習
+		int[] c={1,5,10};
+		System.out.println(c[0]);
+	}
+
+}

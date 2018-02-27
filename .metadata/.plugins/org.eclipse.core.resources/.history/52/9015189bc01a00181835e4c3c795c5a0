@@ -1,0 +1,10 @@
+
+public class Test {
+	public static void main(String[]args){
+		Robot asimo=new Robot();
+		asimo.name="アシモ";
+		asimo.run();
+
+	}
+
+}

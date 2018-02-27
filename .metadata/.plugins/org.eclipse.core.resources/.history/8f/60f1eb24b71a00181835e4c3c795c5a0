@@ -1,0 +1,10 @@
+
+public class Test {
+	public static void main(String[]args){
+		Person jiro=new Person();
+		jiro.name="山田次郎";
+		jiro.talk();
+
+	}
+
+}

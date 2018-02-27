@@ -1,0 +1,12 @@
+
+public class Test {
+	public static void main(String[]args){
+		Person suzuka=new Person();
+		suzuka.name="岩片寿々伽";
+		suzuka.age=27;
+		System.out.println(suzuka.name);
+		System.out.println(suzuka.age);
+
+	}
+
+}
