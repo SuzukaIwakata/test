@@ -3,8 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<meta charset="UTF-8">
+<title>total-error</title>
 </head>
 <body>
 <%@page isErrorPage="true" %>
@@ -13,20 +13,19 @@
 <br>
 <p><%=exception %></p>
 <table border=1>
-<tr>
-	<td><strong>エラーメッセージ</strong></td>
-	<td><%=exception.getMessage() %></td>
-</tr>
-<tr>
-	<td><strong>例外を文字列に変換</strong></td>
-	<td><%=exception.toString() %></td>
-</tr>
-<tr>
-	<td><strong>sタックトレース</strong></td>
-	<td>
-	<% exception.printStackTrace(new java.io.PrintWriter(out)); %>
+	<tr>
+		<td><strong>エラーメッセージ</strong></td>
+		<td><%=exception.getMessage() %></td>
+	</tr>
+	<tr>
+		<td><strong>例文を文字列に変換</strong></td>
+		<td><%=exception.toString() %></td>
+	</tr>
+	<tr>
+		<td><strong>スタックトレース</strong></td>
+		<td>
+		<% exception.printStackTrace(new java.io.PrintWriter(out)); %>
 	</td></tr>
 </table>
-
 </body>
 </html>

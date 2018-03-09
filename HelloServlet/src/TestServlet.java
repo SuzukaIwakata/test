@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/TestServlet")
 public class TestServlet extends HttpServlet {
 
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -26,8 +27,7 @@ public class TestServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws
-	ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
@@ -37,14 +37,15 @@ public class TestServlet extends HttpServlet {
 		System.out.println(username);
 		System.out.println(password);
 
-		PrintWriter out=response.getWriter();
+		PrintWriter out = response.getWriter();
 
 		out.println("<html><head></head><body><br>"+username+"<br>"+password+"</body></html>");
-
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws
-	ServletException, IOException {
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
@@ -54,10 +55,9 @@ public class TestServlet extends HttpServlet {
 		System.out.println(username);
 		System.out.println(password);
 
-		PrintWriter out=response.getWriter();
+		PrintWriter out = response.getWriter();
 
 		out.println("<html><head></head><body><br>"+username+"<br>"+password+"</body></html>");
-
 	}
 
 }

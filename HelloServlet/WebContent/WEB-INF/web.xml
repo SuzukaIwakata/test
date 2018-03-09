@@ -36,6 +36,7 @@
     <servlet-name>Test</servlet-name>
     <url-pattern>/HelloServlet/TestServlet</url-pattern>
   </servlet-mapping>
+
   <servlet>
     <servlet-name>MySQL</servlet-name>
     <servlet-class>MySQLServlet</servlet-class>

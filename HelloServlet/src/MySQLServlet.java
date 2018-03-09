@@ -1,5 +1,4 @@
 
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -19,25 +18,25 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/MySQLServlet")
 public class MySQLServlet extends HttpServlet {
-
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public MySQLServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public MySQLServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws
-	ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 
-		PrintWriter out =response.getWriter();
+		PrintWriter out = response.getWriter();
 
 		out.println("<html>");
 		out.println("<head>");
@@ -45,53 +44,54 @@ public class MySQLServlet extends HttpServlet {
 		out.println("</head>");
 		out.println("<body>");
 
-		Connection conn=null;
-		String url="jdbc:mysql://localhost/testdb";
-		String user="root";
-		String password="mysql";
+		Connection conn = null;
+		String url = "jdbc:mysql://localhost/testdb";
+		String user = "root";
+		String password = "mysql";
 
-		try{
+		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			conn=DriverManager.getConnection(url,user,password);
+			conn = DriverManager.getConnection(url, user, password);
 
-			Statement stmt =conn.createStatement();
-			String sql ="select * from test_table";
-			ResultSet rs=stmt.executeQuery(sql);
+			Statement stmt = conn.createStatement();
+			String sql = "SELECT * FROM test_table";
+			ResultSet rs = stmt.executeQuery(sql);
 
-			while(rs.next()){
-				int userId =rs.getInt("user_id");
-				String userName=rs.getString("user_name");
-				String userPassword=rs.getString("password");
+			while (rs.next()) {
+				int userId = rs.getInt("user_id");
+				String userName = rs.getString("user_name");
+				String userPassword = rs.getString("password");
 				out.println("<p>");
-				out.println("ユーザーID："+ userId +"，ユーザー名："+ userName + "，パスワード："+userPassword);
+				out.println("ユーザーID：" + userId + "，ユーザー名：" + userName + "，パスワード：" + userPassword);
 				out.println("</p>");
 			}
 			rs.close();
 			stmt.close();
-		}catch(ClassNotFoundException e){
-			out.println("ClassNotFoundException:"+e.getMessage());;
-		}catch(SQLException e){
-			out.println("SQLException:"+e.getMessage());
-		}catch(Exception e){
-			out.println("Exception:"+e.getMessage());
-		}finally{
-			try{
-				if(conn != null){
+		} catch (ClassNotFoundException e) {
+			out.println("ClassNotFoundExcepton:" + e.getMessage());
+		} catch (SQLException e) {
+			out.println("SQLException:" + e.getMessage());
+		} catch (Exception e) {
+			out.println("Exception:" + e.getMessage());
+		} finally {
+			try {
+				if (conn != null) {
 					conn.close();
 				}
-			}catch(SQLException e){
-				out.println("SQLException:"+e.getMessage());
+			} catch (SQLException e) {
+				out.println("SQLException:" + e.getMessage());
 			}
+			out.println("</body>");
+			out.println("</html>");
 		}
-		out.println("</body>");
-		out.println("</html>");
 	}
 
-
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
