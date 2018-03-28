@@ -10,6 +10,8 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	private String loginUserId;
 	private String loginPassword;
 	private String userName;
+	private String userAddress;
+	private String userPhone;
 	public Map<String, Object> session;
 	private String errorMessage;
 
@@ -20,6 +22,9 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 			session.put("loginUserId", loginUserId);
 			session.put("loginPassword", loginPassword);
 			session.put("userName", userName);
+			session.put("userAddress", userAddress);
+			session.put("userPhone", userPhone);
+
 		} else {
 			setErrorMessage("未入力の項目があります。");
 			result = ERROR;
@@ -49,6 +54,22 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+
+	public String getUserAddress(){
+		return userAddress;
+	}
+
+	public void setUserAddress(String userAddress){
+		this.userAddress=userAddress;
+	}
+
+	public String getUserPhone(){
+		return userPhone;
+	}
+
+	public void setUserPhone(String userPhone){
+		this.userPhone=userPhone;
 	}
 
 	@Override

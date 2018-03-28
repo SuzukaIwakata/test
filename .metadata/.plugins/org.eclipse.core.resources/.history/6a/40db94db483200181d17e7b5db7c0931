@@ -1,0 +1,5 @@
+package com.internousdev.ecsite_a.dto;
+
+public class BuyItemCompleteDTO {
+
+}

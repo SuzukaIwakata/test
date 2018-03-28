@@ -1,0 +1,29 @@
+package com.internousdev.ecsite_a.dto;
+
+public class InquiryDTO {
+
+	private String name;
+	private String mailaddress;
+	private String body;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getMailaddress() {
+		return mailaddress;
+	}
+	public void setMailaddress(String mailaddress) {
+		this.mailaddress = mailaddress;
+	}
+	public String getBody() {
+		return body;
+	}
+	public void setBody(String body) {
+		this.body = body;
+	}
+
+
+
+}

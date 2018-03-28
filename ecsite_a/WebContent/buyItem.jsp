@@ -32,12 +32,13 @@ table {
 	width: 780px;
 	margin: 30px auto;
 	border: 1px solid #333;
+	text-align: center;
 }
 
 #header {
 	width: 100%;
 	height: 80px;
-	background-color: black;
+	background-color: #DB7093;
 }
 
 #main {
@@ -49,9 +50,24 @@ table {
 #footer {
 	width: 100%;
 	height: 80px;
-	background-color: black;
+	background-color: #DB7093;
 	clear: both;
 }
+
+span{
+	font-size:8px;
+}
+
+#shiharai {
+	text-align: center;
+	}
+
+#kounyu{
+	text-align: center;
+}
+
+
+
 </style>
 </head>
 <body>
@@ -60,17 +76,21 @@ table {
 		</div>
 	</div>
 	<div id="top">
-		<p>BuyItem</p>
+		<p>商品一覧</p>
 	</div>
 	<div>
 		<s:form action="BuyItemAction">
-			<table>
+		<table>
+			<s:iterator value="session.list">
+				<s:hidden name="id" value="%{id}"/>
 				<tr>
 					<td>
 						<span>商品名</span>
 					</td>
 					<td>
-						<s:property value="session.buyItem_name"/><br>
+						<s:property value="itemName"/>
+						<s:hidden name="itemName" value="%{itemName}"/>
+						<br>
 					</td>
 				</tr>
 				<tr>
@@ -78,7 +98,8 @@ table {
 						<span>値段</span>
 					</td>
 					<td>
-					<s:property value="session.buyItem_price"/><span>円</span>
+					<s:property value="itemPrice"/><span>円</span>
+					<s:hidden name="itemPrice" value="%{itemPrice}"/>
 					</td>
 				</tr>
 				<tr>
@@ -87,7 +108,8 @@ table {
 					</td>
 					<td>
 						<select name="count">
-							<option value="1" selected="selected">1</option>
+							<option value="0" selected="selected">0</option>
+							<option value="1">1</option>
 							<option value="2">2</option>
 							<option value="3">3</option>
 							<option value="4">4</option>
@@ -95,6 +117,11 @@ table {
 						</select>
 					</td>
 				</tr>
+				</s:iterator>
+				</table>
+
+				<div id="shiharai">
+				<table>
 				<tr>
 					<td>
 						<span>支払い方法</span>
@@ -104,12 +131,18 @@ table {
 						<input type="radio" name="pay" value="2">クレジットカード
 					</td>
 				</tr>
+				</table>
+				</div>
+				<div id="kounyu">
+				<table>
 				<tr>
 					<td>
 						<s:submit value="購入"/>
 					</td>
 				</tr>
-			</table>
+				</table>
+				</div>
+
 		</s:form>
 			<div>
 					<p>前画面に戻る場合は<a href='<s:url action="GoHomeAction"/>'>こちら</a></p>

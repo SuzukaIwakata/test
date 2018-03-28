@@ -20,4 +20,7 @@
 <fullyQualifiedTypeName name="java.sql.Connection"/>
 <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.internousdev.ecsite_a.dto.BuyItemDTO"/>
+<fullyQualifiedTypeName name="com.internousdev.ecsite_a.dto.BuyItemCompleteDTO"/>
 </qualifiedTypeNameHistroy>

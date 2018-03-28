@@ -11,6 +11,21 @@
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <title>home画面</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
+  <script>
+    $(document).ready(function(){
+      $('.slider').bxSlider({
+          auto:true,
+          mode:'fade',
+          speed:1000,
+          slideWidth:600,
+          controls:false,
+      });
+    });
+  </script>
 <style type="text/css">
 body {
 	margin: 0;
@@ -42,11 +57,11 @@ table {
 
 #main {
 	width: 100%;
-	height: 500px;
 	text-align: center;
 }
 
 #footer {
+	margin-top:auto;
 	width: 100%;
 	height: 80px;
 	background-color:#DB7093;
@@ -54,9 +69,37 @@ table {
 }
 
 #text-center {
-	display: inline-block;
 	text-align: center;
+	height:100%;
 }
+
+.slider img{
+	display:block;
+	margin:0 auto;
+}
+
+p{
+	font-family: Estrangelo Edessa;
+	font-weight:bold;
+	font-size:20px;
+}
+
+.button{
+    display:inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #FAEBD7;
+    border-left: solid 6px #DB7093;
+    color:#DB7093;
+    font-weight: bold;
+    box-shadow: 0px 2px 2px rgba(0,0,0,0.29);
+}
+
+.button:active{
+    box-shadow: inset 0 0 2px rgba(128,128,128,0.1);
+    transform: translateY(2px);
+}
+
 </style>
 </head>
 <body>
@@ -65,12 +108,25 @@ table {
 	</div>
 	<div id="main">
 		<div id="top">
-			<p>Home</p>
+			<p>ACCESSORY SHOP</p>
 		</div>
 		<div id="text-center">
-			<s:form action="HomeAction">
-				<s:submit value="商品購入" />
+
+			<div class="slider">
+            <div><img src="IMG_3231.JPG"></div>
+            <div><img src="IMG_7411.JPG"></div>
+            <div><img src="IMG_34.jpg"></div>
+            </div>
+            <s:form action="HomeAction">
+				<s:submit class="button" value=" 商 品 購 入 " />
+
 			</s:form>
+			<br>
+			<s:form action="InquiryAction">
+				<s:submit class="button" value="お問い合わせ"/>
+			</s:form>
+			<br>
+
 			<s:if test="#session.id ! =null">
 				<p>
 					ログアウトする場合は <a href='<s:url action="LogoutAction"/>'>こちら</a>

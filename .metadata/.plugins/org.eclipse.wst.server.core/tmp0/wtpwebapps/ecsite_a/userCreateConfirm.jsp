@@ -37,7 +37,7 @@ table {
 #header {
 	width: 100%;
 	height: 80px;
-	background-color: black;
+	background-color: #DB7093;
 }
 
 #main {
@@ -49,7 +49,7 @@ table {
 #footer {
 	width: 100%;
 	height: 80px;
-	background-color: black;
+	background-color: #DB7093;
 	clear: both;
 }
 
@@ -77,7 +77,7 @@ table {
 					<label>ログインID:</label>
 				</td>
 				<td>
-					<s:property value="loginUserId" escape="false"/>
+					<s:property value="#session.loginUserId" escape="false"/>
 				</td>
 			</tr>
 			<tr id="box">
@@ -85,15 +85,31 @@ table {
 					<label>ログインPASS:</label>
 				</td>
 				<td>
-					<s:property value="loginPassword" escape="false"/>
+					<s:property value="#session.loginPassword" escape="false"/>
 				</td>
 			</tr>
 			<tr id="box">
 				<td>
-					<label>ユーザー名：</label>
+					<label>名前：</label>
 				</td>
 				<td>
-					<s:property value="userName" escape="false"/>
+					<s:property value="#session.userName" escape="false"/>
+				</td>
+			</tr>
+			<tr id="box">
+				<td>
+					<label>住所：</label>
+				</td>
+				<td>
+					<s:property value="#session.userAddress" escape="false"/>
+				</td>
+			</tr>
+			<tr id="box">
+				<td>
+					<label>電話番号：</label>
+				</td>
+				<td>
+					<s:property value="#session.userPhone" escape="false"/>
 				</td>
 			</tr>
 			<tr>
@@ -103,6 +119,10 @@ table {
 			</tr>
 			</s:form>
 			</table>
+			<div>
+			<span>ホーム画面に戻る場合は</span>
+			<a href='<s:url action="HomeAction"/>'>こちら</a>
+			</div>
 		</div>
 	</div>
 	<div id="footer">

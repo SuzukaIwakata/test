@@ -39,7 +39,7 @@ table {
 #header {
 	width: 100%;
 	height: 80px;
-	background-color: black;
+	background-color: #DB7093;
 }
 
 #main {
@@ -51,7 +51,7 @@ table {
 #footer {
 	width: 100%;
 	height: 80px;
-	background-color: black;
+	background-color: #DB7093;
 	clear: both;
 }
 </style>
@@ -68,25 +68,36 @@ table {
 	</div>
 	<div id="main">
 		<div id="top">
-			<p>BuyItem</p>
+			<p>購 入 商 品 確 認</p>
 		</div>
 		<div>
 			<s:form>
+				<s:iterator value="session.list">
+
 				<tr>
 					<td>商品名</td>
-					<td><s:property value="session.buyItem_name"/></td>
+					<td><s:property value="itemName"/></td>
+					<s:hidden name="itemName" value="%{itemName}"/>
 				</tr>
 				<tr>
 					<td>値段</td>
-					<td><s:property value="session.total_price"/><span>円</span></td>
+					<td><s:property value="itemPrice"/><span>円</span></td>
 				</tr>
 				<tr>
 					<td>購入個数</td>
-					<td><s:property value="session.count"/><span>個</span></td>
+					<td><s:property value="count"/><span>個</span></td>
+					<s:hidden name="count" value="%{count}"/>
+				</tr>
+				</s:iterator>
+				<tr>
+					<td>合計金額</td>
+					<td><s:property value="session.total_price"/><span>円</span></td>
+					<s:hidden name="totalPrice" value="%{totalPrice}"/>
 				</tr>
 				<tr>
 					<td>支払い方法</td>
 					<td><s:property value="session.pay"/></td>
+					<s:hidden name="pay" value="%{pay}"/>
 				</tr>
 				<tr>
 					<td><br></td>
@@ -97,6 +108,7 @@ table {
 					<td><input type="button" value="完了"
 						onclick="submitAction('BuyItemConfirmAction')" /></td>
 				</tr>
+
 			</s:form>
 			<div>
 					<p>前画面に戻る場合は<a href='<s:url action="GoHomeAction"/>'>こちら</a></p>

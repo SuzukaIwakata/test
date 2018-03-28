@@ -1,0 +1,39 @@
+package com.internousdev.ecsite_a.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.List;
+import java.util.ArrayList;
+
+import com.internousdev.ecsite_a.dto.BuyItemDTO;
+import com.internousdev.ecsite_a.util.DBConnector;
+
+public class BuyItemDAO {
+	private DBConnector dbConnector = new DBConnector();
+	private Connection connection = dbConnector.getConnection();
+	private List<BuyItemDTO> buyItemDTOList = new ArrayList<BuyItemDTO>();
+
+	public List<BuyItemDTO> getBuyItemInfo() {
+		String sql = "SELECT id,item_name,item_price FROM item_info_transaction";
+
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			ResultSet resultSet = preparedStatement.executeQuery();
+
+			if (resultSet.next()) {
+				buyItemDTOList.setId(resultSet.getInt("id"));
+				buyItemDTOList.setItemName(resultSet.getString("item_name"));
+				buyItemDTOList.setItemPrice(resultSet.getString("item_price"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return buyItemDTOList;
+	}
+
+	public BuyItemDTO getBuyItemDTO() {
+		return buyItemDTO;
+	}
+
+}

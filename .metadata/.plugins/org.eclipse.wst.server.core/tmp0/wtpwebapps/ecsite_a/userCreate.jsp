@@ -37,7 +37,7 @@ table {
 #header {
 	width: 100%;
 	height: 80px;
-	background-color: black;
+	background-color: #DB7093;
 }
 
 #main {
@@ -49,7 +49,7 @@ table {
 #footer {
 	width: 100%;
 	height: 80px;
-	background-color: black;
+	background-color: #DB7093;
 	clear: both;
 }
 
@@ -92,10 +92,26 @@ table {
 			</tr>
 			<tr>
 				<td>
-					<label>ユーザー名：</label>
+					<label>名前：</label>
 				</td>
 				<td>
 					<input type="text" name="userName" value=""/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label>住所：</label>
+				</td>
+				<td>
+					<input type="text" name="userAddress" value=""/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label>電話番号：</label>
+				</td>
+				<td>
+					<input type="text" name="userPhone" value=""/>
 				</td>
 			</tr>
 			<s:submit value="登録"/>
