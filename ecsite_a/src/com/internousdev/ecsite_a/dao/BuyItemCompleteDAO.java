@@ -13,8 +13,8 @@ public class BuyItemCompleteDAO {
 	private DateUtil dateUtil = new DateUtil();
 	private String sql = "INSERT INTO user_buy_item_transaction(item_transaction_id,item_name,total_price,total_count,user_master_id,pay,insert_date)VALUES(?,?,?,?,?,?,?)";
 
-	public void buyItemInfo(String item_transaction_id, String user_master_id, String total_price, String total_count,
-			String pay,String item_name) throws SQLException {
+	public int buyItemInfo(String item_transaction_id,String item_name,String total_price, String total_count,String user_master_id,String pay) throws SQLException {
+		int ret = 0;
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, item_transaction_id);
@@ -24,12 +24,14 @@ public class BuyItemCompleteDAO {
 			preparedStatement.setString(5, user_master_id);
 			preparedStatement.setString(6, pay);
 			preparedStatement.setString(7, dateUtil.getDate());
-			preparedStatement.execute();
+			ret = preparedStatement.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			connection.close();
 		}
+		return ret;
 	}
-
 }
+
+

@@ -17,7 +17,7 @@
 
   <script>
     $(document).ready(function(){
-      $('.slider').bxSlider({
+      $('#slider').bxSlider({
           auto:true,
           mode:'fade',
           speed:1000,
@@ -73,9 +73,13 @@ table {
 	height:100%;
 }
 
-.slider img{
-	display:block;
-	margin:0 auto;
+#slider{
+	display: flex;
+}
+
+.bx-wrapper{
+    text-align: center;
+    margin: 0 auto;
 }
 
 p{
@@ -110,13 +114,16 @@ p{
 		<div id="top">
 			<p>ACCESSORY SHOP</p>
 		</div>
-		<div id="text-center">
 
-			<div class="slider">
+			<div id="text-center">
+			<div id="slider">
             <div><img src="IMG_3231.JPG"></div>
             <div><img src="IMG_7411.JPG"></div>
             <div><img src="IMG_34.jpg"></div>
             </div>
+            <br>
+            <br>
+            <br>
             <s:form action="HomeAction">
 				<s:submit class="button" value=" 商 品 購 入 " />
 
@@ -133,7 +140,7 @@ p{
 				</p>
 			</s:if>
 		</div>
-	</div>
+		</div>
 	<div id="footer">
 		<div id="pr"></div>
 	</div>

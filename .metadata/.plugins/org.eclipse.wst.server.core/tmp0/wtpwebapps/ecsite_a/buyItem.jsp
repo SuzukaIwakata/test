@@ -82,14 +82,15 @@ span{
 		<s:form action="BuyItemAction">
 		<table>
 			<s:iterator value="session.list">
-				<s:hidden name="id" value="%{id}"/>
 				<tr>
 					<td>
 						<span>商品名</span>
 					</td>
 					<td>
-						<s:property value="itemName"/>
+						<s:property value="id"/>:<s:property value="itemName"/>
+						<s:hidden name="id" value="%{id}"/>
 						<s:hidden name="itemName" value="%{itemName}"/>
+
 						<br>
 					</td>
 				</tr>

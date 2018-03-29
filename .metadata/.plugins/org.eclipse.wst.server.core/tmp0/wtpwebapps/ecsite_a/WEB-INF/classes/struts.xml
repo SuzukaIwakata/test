@@ -31,8 +31,7 @@
 
 		<!-- UserCreateConfirmAction -->
 		<action name="UserCreateConfirmAction" class="com.internousdev.ecsite_a.action.UserCreateConfirmAction" method="execute">
-		<result name="success">userCreateConfirm.jsp</result
-		>
+		<result name="success">userCreateConfirm.jsp</result>
 		<result name="error">userCreate.jsp</result>
 		</action>
 
@@ -54,7 +53,7 @@
 
 		<!-- BuyItemCompleteAction -->
 		<action name="BuyItemCompleteAction" class="com.internousdev.ecsite_a.action.BuyItemCompleteAction" method="execute">
-		<result name="success">home.jsp</result>
+		<result name="success">buyItemComplete2.jsp</result>
 		</action>
 
 		<!-- MyPageAction -->

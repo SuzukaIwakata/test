@@ -52,6 +52,21 @@ table {
 	background-color: #DB7093;
 	clear: both;
 }
+.button{
+    display:inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #FAEBD7;
+    border-left: solid 6px #DB7093;
+    color:#DB7093;
+    font-weight: bold;
+    box-shadow: 0px 2px 2px rgba(0,0,0,0.29);
+}
+
+.button:active{
+    box-shadow: inset 0 0 2px rgba(128,128,128,0.1);
+    transform: translateY(2px);
+}
 </style>
 </head>
 <body>
@@ -64,10 +79,16 @@ table {
 			<p>BuyItemComplete</p>
 		</div>
 		<div>
-			<p>購入手続きが完了致しました。</p>
+			<h3>購入手続きを完了する場合は下記をクリックしてください。</h3>
 			<div>
-				<a href='<s:url action="MyPageAction"/>'>マイページ</a><span>から購入履歴の確認が可能です。</span>
-				<p>Homeに戻る場合は<a href='<s:url action="GoHomeAction"/>'>こちら</a></p>
+            <s:form action="BuyItemCompleteAction">
+				<s:submit class="button" value=" 完　了 " />
+					<s:hidden name="id" value="%{id}"/>
+					<s:hidden name="itemName" value="%{itemName}"/>
+					<s:hidden name="count" value="%{count}"/>
+					<s:hidden name="totalPrice" value="%{totalPrice}"/>
+					<s:hidden name="pay" value="%{pay}"/>
+			</s:form>
 			</div>
 		</div>
 	</div>

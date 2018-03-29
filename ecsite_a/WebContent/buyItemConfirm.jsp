@@ -68,7 +68,7 @@ table {
 	</div>
 	<div id="main">
 		<div id="top">
-			<p>購 入 商 品 確 認</p>
+			<p>カ ー ト リ ス ト</p>
 		</div>
 		<div>
 			<s:form>
@@ -76,7 +76,8 @@ table {
 
 				<tr>
 					<td>商品名</td>
-					<td><s:property value="itemName"/></td>
+					<td><s:property value="id"/>:<s:property value="itemName"/></td>
+					<s:hidden name="id" value="%{id}"/>
 					<s:hidden name="itemName" value="%{itemName}"/>
 				</tr>
 				<tr>
