@@ -2,54 +2,81 @@ package com.internousdev.ecsite_a.action;
 
 
 import java.sql.SQLException;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.ecsite_a.dao.BuyItemCompleteDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
-
-public class BuyItemCompleteAction extends ActionSupport{
+public class BuyItemCompleteAction extends ActionSupport implements SessionAware{
 	private String id;
 	private String itemName;
 	private String totalPrice;
 	private String count;
 	private String user_master_id;
 	private String pay;
+	public Map<String, Object> session;
 
 	public String execute() throws SQLException{
 
-		String[] item_transaction_id = id.split(", ",0);
-		String[] item_name = itemName.split(", ",0);
-		String[] total_price = totalPrice.split(", ",0);
-		String[] total_count = count.split(", ",0);
+		String[] item_transaction_idList = id.split(", ",0);
+		String[] item_nameList = itemName.split(", ",0);
+		String[] total_priceList = totalPrice.split(", ",0);
+		String[] total_countList = count.split(", ",0);
+		String[] payList = pay.split(", ",0);
 
-		item_transaction_id.put()
-		String ret = ERROR;
+		for(int i=0; i<item_transaction_idList.length;i++){
 		BuyItemCompleteDAO dao = new BuyItemCompleteDAO();
-		int count = dao.buyItemInfo(item_transaction_id,item_name,total_price,total_count,user_master_id,pay);
-		if(count > 0){
-			ret = SUCCESS;
+//		session.put("login_user_id", user_master_id);
+
+		user_master_id = session.get("login_user_id").toString();
+
+		dao.buyItemInfo(item_transaction_idList[i].toString(), item_nameList[i].toString(), total_priceList[0].toString(), total_countList[i].toString(),user_master_id, payList[0].toString());
+
 		}
-		return ret;
+		String result= SUCCESS;
+		return result;
 	}
 
 
-	public String getid() {
+	public String getId() {
 		return id;
 	}
 
 
-	public void setItem_transaction_id(String id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
 
-	public String getItem_name() {
-		return item_name;
+	public String getItemName() {
+		return itemName;
 	}
 
 
-	public void setItem_name(String item_name) {
-		this.item_name = item_name;
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
+	}
+
+
+	public String getTotalPrice() {
+		return totalPrice;
+	}
+
+
+	public void setTotalPrice(String totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+
+
+	public String getCount() {
+		return count;
+	}
+
+
+	public void setCount(String count) {
+		this.count = count;
 	}
 
 
@@ -63,26 +90,6 @@ public class BuyItemCompleteAction extends ActionSupport{
 	}
 
 
-	public String getTotal_price() {
-		return total_price;
-	}
-
-
-	public void setTotal_price(String total_price) {
-		this.total_price = total_price;
-	}
-
-
-	public String getTotal_count() {
-		return total_count;
-	}
-
-
-	public void setTotal_count(String total_count) {
-		this.total_count = total_count;
-	}
-
-
 	public String getPay() {
 		return pay;
 	}
@@ -90,6 +97,17 @@ public class BuyItemCompleteAction extends ActionSupport{
 
 	public void setPay(String pay) {
 		this.pay = pay;
+	}
+
+
+	public Map<String, Object> getSession() {
+		return session;
+	}
+
+
+	@Override
+	public void setSession(Map<String, Object> session) {
+		this.session=session;
 	}
 
 

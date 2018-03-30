@@ -61,7 +61,6 @@ table {
 }
 
 #footer {
-	margin-top:auto;
 	width: 100%;
 	height: 80px;
 	background-color:#DB7093;

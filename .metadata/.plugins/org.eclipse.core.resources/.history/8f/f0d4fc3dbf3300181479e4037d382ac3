@@ -1,0 +1,49 @@
+package com.internousdev.ecsite_a.action;
+
+
+import java.sql.SQLException;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.internousdev.ecsite_a.dao.BuyItemCompleteDAO;
+import com.opensymphony.xwork2.ActionSupport;
+
+public class BuyItemCompleteAction extends ActionSupport implements SessionAware{
+	private String id;
+	private String itemName;
+	private String totalPrice;
+	private String count;
+	private String user_master_id;
+	private String pay;
+	public Map<String, Object> session;
+
+	public String execute() throws SQLException{
+
+		String[] item_transaction_idList = id.split(", ",0);
+		String[] item_nameList = itemName.split(", ",0);
+		String[] total_priceList = totalPrice.split(", ",0);
+		String[] total_countList = count.split(", ",0);
+
+		for(int i=0; i<item_transaction_idList.length;i++){
+		BuyItemCompleteDAO dao = new BuyItemCompleteDAO();
+		dao.setItem_transaction_id(item_transaction_idList[i].toString());
+		dao.setItem_name(item_nameList[i].toString());
+		dao.setTotal_price(total_priceList[i].toString());
+		dao.setTotal_count(total_countList[i].toString());
+		session.put("login_user_id", user_master_id);
+		session.put("pay",pay);
+
+		}
+		String result= SUCCESS;
+		return result;
+	}
+
+	@Override
+	public void setSession(Map<String, Object> session) {
+		this.session=session;
+
+	}
+
+
+}

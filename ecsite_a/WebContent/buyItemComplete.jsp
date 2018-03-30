@@ -85,8 +85,8 @@ table {
 				<s:submit class="button" value=" 完　了 " />
 					<s:hidden name="id" value="%{id}"/>
 					<s:hidden name="itemName" value="%{itemName}"/>
-					<s:hidden name="count" value="%{count}"/>
 					<s:hidden name="totalPrice" value="%{totalPrice}"/>
+					<s:hidden name="count" value="%{count}"/>
 					<s:hidden name="pay" value="%{pay}"/>
 			</s:form>
 			</div>

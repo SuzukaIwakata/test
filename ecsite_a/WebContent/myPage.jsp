@@ -37,7 +37,7 @@ table {
 #header {
 	width: 100%;
 	height: 80px;
-	background-color: black;
+	background-color: #DB7093;
 }
 
 #main {
@@ -47,9 +47,10 @@ table {
 }
 
 #footer {
+	display: flex;
 	width: 100%;
 	height: 80px;
-	background-color: black;
+	background-color: #DB7093;
 	clear: both;
 }
 
