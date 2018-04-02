@@ -20,6 +20,12 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware{
 
 	public String execute()throws SQLException{
 
+		System.out.println(id);
+		System.out.println(itemName);
+		System.out.println(totalPrice);
+		System.out.println(count);
+		System.out.println(pay);
+
 		String[] idList = id.split(", ",0);
 		String[] itemNameList = itemName.split(", ",0);
 		String[] countList = count.split(", ",0);

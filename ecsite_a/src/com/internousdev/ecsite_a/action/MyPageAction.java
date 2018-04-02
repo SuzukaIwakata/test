@@ -31,10 +31,11 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 		return result;
 	}
 	public void delete()throws SQLException{
-		String item_transaction_id=session.get("id").toString();
+
 		String user_master_id=session.get("login_user_id").toString();
 
-		int res=myPageDAO.buyItemHistoryDelete(item_transaction_id,user_master_id);
+		MyPageDAO myPageDAO = new MyPageDAO();
+		int res=myPageDAO.buyItemHistoryDelete(user_master_id);
 
 		if(res>0){
 			myPageList=null;

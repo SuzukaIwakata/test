@@ -62,7 +62,7 @@ table {
 </head>
 <body>
 	<div id="header">
-		<div id="top">
+		<div id="pr">
 		</div>
 	</div>
 	<div id="main">

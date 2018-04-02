@@ -55,7 +55,7 @@ table {
 }
 
 span{
-	font-size:8px;
+	font-size:10px;
 }
 
 #shiharai {
@@ -66,7 +66,13 @@ span{
 	text-align: center;
 }
 
+#list{
+	padding-bottom:5px;
+}
 
+div{
+	text-align:center;
+}
 
 </style>
 </head>
@@ -81,7 +87,7 @@ span{
 	<div>
 		<s:form action="BuyItemAction">
 		<table>
-			<s:iterator value="session.list">
+			<s:iterator id="list" value="session.list">
 				<tr>
 					<td>
 						<span>商品名</span>
@@ -90,8 +96,6 @@ span{
 						<s:property value="id"/>:<s:property value="itemName"/>
 						<s:hidden name="id" value="%{id}"/>
 						<s:hidden name="itemName" value="%{itemName}"/>
-
-						<br>
 					</td>
 				</tr>
 				<tr>
@@ -120,7 +124,7 @@ span{
 				</tr>
 				</s:iterator>
 				</table>
-
+				<br>
 				<div id="shiharai">
 				<table>
 				<tr>
@@ -134,6 +138,7 @@ span{
 				</tr>
 				</table>
 				</div>
+				<br>
 				<div id="kounyu">
 				<table>
 				<tr>
@@ -145,6 +150,7 @@ span{
 				</div>
 
 		</s:form>
+			<br>
 			<div>
 					<p>前画面に戻る場合は<a href='<s:url action="GoHomeAction"/>'>こちら</a></p>
 					<p>マイページは<a href='<s:url action="MyPageAction"/>'>こちら</a></p>
