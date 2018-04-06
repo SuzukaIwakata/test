@@ -68,7 +68,7 @@ table {
 	</div>
 	<div id="main">
 		<div id="top">
-			<p>カ ー ト リ ス ト</p>
+			<p>購 入 確 認</p>
 		</div>
 		<div>
 			<s:form>
